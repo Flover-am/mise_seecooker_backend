@@ -39,5 +39,5 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - sshpass -p "ahdsx4tx" scp -o StrictHostKeyChecking=no target/seecooker-0.0.1-SNAPSHOT.jar root@172.29.4.114:~
     - sshpass -p "ahdsx4tx" scp -o StrictHostKeyChecking=no Dockerfile_deploy root@172.29.4.114:~
-    - sshpass -p "ahdsx4tx" ssh -o StrictHostKeyChecking=no root@172.29.4.114 "docker build -f Dockerfile_deploy -t seecooker:0.0.1 .;docker stop seecooker_deploy;docker rm seecooker_deploy;docker run --name weshare_deploy -itd -p 8080:8080 seecooker:0.0.1"
+    - sshpass -p "ahdsx4tx" ssh -o StrictHostKeyChecking=no root@172.29.4.114 "docker build -f Dockerfile_deploy -t seecooker:0.0.1 .;docker stop seecooker_deploy;docker rm seecooker_deploy;docker run --name seecooker_deploy -itd -p 8080:8080 seecooker:0.0.1"
     - echo "Application successfully deployed."
