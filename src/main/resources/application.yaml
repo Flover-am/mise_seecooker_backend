@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/seecooker?useUnicode=true&characterEncoding=utf8&currentSchema=public&stringtype=unspecified
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://124.222.18.205:5432/seecooker?useUnicode=true&characterEncoding=utf8&currentSchema=public&stringtype=unspecified
+    username: se2dbuser
+    password: se2dbpasswd
 
   jpa:
     hibernate:
