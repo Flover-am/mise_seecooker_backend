@@ -37,8 +37,8 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - sshpass -p "ahdsx4tx" scp -o StrictHostKeyChecking=no target/seecooker-0.0.1-SNAPSHOT.jar root@172.29.4.114:~
-    - sshpass -p "ahdsx4tx" scp -o StrictHostKeyChecking=no Dockerfile_deploy root@172.29.4.114:~
-    - sshpass -p "ahdsx4tx" scp -o StrictHostKeyChecking=no run.sh root@172.29.4.114:~
-    - sshpass -p "ahdsx4tx" ssh -o StrictHostKeyChecking=no root@172.29.4.114 "chmod 777 run.sh; ./run.sh"
+    - sshpass -p "$server_passwd" scp -o StrictHostKeyChecking=no target/seecooker-0.0.1-SNAPSHOT.jar root@server_$ip:~
+    - sshpass -p "server_passwd" scp -o StrictHostKeyChecking=no Dockerfile_deploy root@server_$ip:~
+    - sshpass -p "server_passwd" scp -o StrictHostKeyChecking=no run.sh root@server_$ip:~
+    - sshpass -p "server_passwd" ssh -o StrictHostKeyChecking=no root@server_$ip "chmod 777 run.sh; ./run.sh"
     - echo "Application successfully deployed."
